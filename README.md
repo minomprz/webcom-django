@@ -1,2 +1,3 @@
 # webcom-django
-e-commerce study
+e-commerce
+for study
