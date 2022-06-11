@@ -11,5 +11,5 @@ urlpatterns = [
     path('wines/create', views.add_wine, name='create'),
     path('wines/edit', views.edit, name='edit'),
 
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
