@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block tittle %} list {% endblock %}
+
+{% block contents %} 
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-primary" href="{% url 'create' %}" role="button">Add</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Wine</h4>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for wine in wines %}
+                <tr>
+                    <td>{{ wine.wi_id }}</td>
+                    <td>{{ wine.wi_name }}</td>
+                    <td><img src="{{ wine.wi_image.url }}" height="100" /></td>
+                    <td>{{ wine.wi_descrip }}</td>
+                    <td> <a name="" id="" class="btn btn-info" href="{% url 'edit' %}" role="button">Edit</a> 
+                        |
+                         <a name="" id="" class="btn btn-danger" href="#" role="button">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>
+{% endblock %}
+
+
