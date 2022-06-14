@@ -23,6 +23,19 @@ def add_wine(request):
         return redirect('wines')
     return render(request, 'wine/create.html', {'wi_form':wi_form})
 
-def edit(request):
-    return render(request, 'wine/edit.html')
+#edit button redir
+def edit(request, id):
+    wine = Wine.objects.get(wi_id=id)
+    wi_form = WineForm(request.POST or None, request.FILES or None, instance = wine) 
+    
+    if wi_form.is_valid() and request.POST:
+        wi_form.save()
+        return redirect('wines')
+    
+    return render(request, 'wine/edit.html', {'wi_form':wi_form})
 
+#delete button view
+def del_wine(request,id):
+    wine = Wine.objects.get(wi_id=id)
+    wine.delete()
+    return redirect('wines')

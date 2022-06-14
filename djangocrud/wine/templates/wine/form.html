@@ -3,16 +3,24 @@
   {% for f in wi_form %}
     <div class="mb-3">
       <label for="" class="form-label">{{ f.label }}:</label>
+      <!-- show image in edit form-->
+      {% if f.field.widget.input_type == 'file' and f.value %}
+      <br/>
+      <img src="{{MEDIA_URL}}/images/{{ f.value }}" width="100" alt="">
+      {% endif %}
       <input 
         type="{{ f.field.widget.input_type }}"
         class="form-control" 
         name="{{ f.name }}" 
         id="" 
         aria-describedby="helpId" 
-        placeholder="{{ f.label }}" />
+        placeholder="{{ f.label }}"
+        value="{{ f.value | default:'' }}"
+        />
     </div>
     <div class="col-12 help-text"> {{f.errors}} </div>
   {% endfor %}
 
   <input name="" id="" class="btn btn-success" type="submit" value="Send info">
+  <a name="" id="" class="btn btn-secondary" href="{% url 'wines' %}" role="button">Return</a>
 </form>

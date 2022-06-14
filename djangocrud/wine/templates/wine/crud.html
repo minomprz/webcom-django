@@ -29,9 +29,9 @@
                     <td>{{ wine.wi_name }}</td>
                     <td><img src="{{ wine.wi_image.url }}" height="100" /></td>
                     <td>{{ wine.wi_descrip }}</td>
-                    <td> <a name="" id="" class="btn btn-info" href="{% url 'edit' %}" role="button">Edit</a> 
+                    <td> <a name="" id="" class="btn btn-info" href="{% url 'edit' wine.wi_id %}" role="button">Edit</a> 
                         |
-                         <a name="" id="" class="btn btn-danger" href="#" role="button">Delete</a></td>
+                         <a name="" id="" class="btn btn-danger" href="{% url 'delete' wine.wi_id %}" role="button">Delete</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
